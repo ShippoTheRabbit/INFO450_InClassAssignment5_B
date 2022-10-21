@@ -3,7 +3,7 @@
 # Build a main script that reads in the list provided, "numbers.txt", and runs it through your quicksort algorithm. 
 # The main script should return the finished sorted list as "sorted.txt"
 # All 3 files "In_class_assignment_5.py", "numbers.txt", and "sorted.txt" should all be added to your github repository and submitted as a github link.
-#hello
+#hello Brianna Boston
 
 '''Info on Quicksort Algorithm: 
 The Quicksort algorithm is an efficient sorting algorithm developed by British computer scientist Tony Hoare in 1959.
