@@ -65,10 +65,16 @@ def main():
     mylist = mylist.split()
     for i in mylist:
         final.append(int(i))
-        
+    q = (quicksort(final))      
+    c = open("sorted.txt", "w")
+    c.write(str(q))
+    c.close()
+    c = open("sorted.txt", "r")
+  
     
-    return (quicksort(final)) #WHAT DOES IT RETURN?
+    return c.read() #WHAT DOES IT RETURN?
 
 
 if __name__ == "__main__":
     print(main())
+    
