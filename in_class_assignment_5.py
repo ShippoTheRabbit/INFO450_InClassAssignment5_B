@@ -1,5 +1,9 @@
 #Problem 1. Sort With Quicksort.
+#Brianna Boston 
+# Oct 23, 2022
 # Please build a function called "quicksort" that uses recursion to define the quicksort algorithm for a list of any length. 
+# https://realpython.com/sorting-algorithms-python/#the-quicksort-algorithm-in-python
+# https://realpython.com/lessons/quicksort-algorithm/
 # Build a main script that reads in the list provided, "numbers.txt", and runs it through your quicksort algorithm. 
 # The main script should return the finished sorted list as "sorted.txt"
 # All 3 files "In_class_assignment_5.py", "numbers.txt", and "sorted.txt" should all be added to your github repository and submitted as a github link.
@@ -22,22 +26,49 @@ The steps of the algorithm are as follows:
 
 The base cases occur when the sublists are either empty or have one element, as these are inherently sorted. 
  '''
-
+import random
 
 def quicksort(numbers_in_a_list):
-
-#WRITE YOUR CODE HERE FOR THE RECURSIVE SORTING FUNCTION
-
-    return #WHAT DOES IT RETURN?
+     """
+     This function takes a list of numbers and recursively sorts it, what it does is pick a pivot point and sorts everything above and below this point.
+     QuickSort runs in either Best Case: O(nlogn) or Worst Case O(n^2)
+     """
+    #WRITE YOUR CODE HERE FOR THE RECURSIVE SORTING FUNCTION
+     low  = [] # lower than pivot
+     high = [] # greater than pivot
+     if len(numbers_in_a_list ) <= 1: #base case 
+        return numbers_in_a_list
+     else:
+        #Geeks for Geeks said we have three ways to get the pivot, either the median, max, or random
+        my_pivot = numbers_in_a_list[random.randint(0, len(numbers_in_a_list) - 1)] 
+         #pivot = max(numbers_in_a_list) # another way to pick your pivot
+        for i in numbers_in_a_list:
+            if int(i) < my_pivot:
+                low.append(i)
+            else: 
+                high.append(i)    
+           
+     return quicksort(low) + quicksort(high)
 
 
 def main():
 
 # WRITE YOUR MAIN FUNCTION HERE TO READ IN YOUR numbers.txt FILE, RUN THE LIST THROUGH YOUR SORTING ALGORITHM, 
 # AND WRITE OUT YOUR FILE
-
-    return #WHAT DOES IT RETURN?
+    final = []
+    f = open("numbers.txt", "r")
+    mylist = f.read()
+    #print(mylist)
+    mylist = mylist.replace('[','')
+    mylist = mylist.replace(']','')
+    mylist = mylist.replace(',','')
+    mylist = mylist.split()
+    for i in mylist:
+        final.append(int(i))
+        
+    
+    return (quicksort(final)) #WHAT DOES IT RETURN?
 
 
 if __name__ == "__main__":
-    main()
+    print(main())
